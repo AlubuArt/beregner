@@ -1,0 +1,36 @@
+.container-fluid  {
+    
+    
+    max-width: 450px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.27);
+    margin: 10px;
+    padding: 10px;
+    
+
+    
+    
+}
+
+.headerContainer {
+    font-family: "Helvetica Neue";
+    font-weight: bold;
+    font-size: 28px;
+    text-align: left;
+    color: #373a3c;
+    
+
+}
+
+.headerText {
+    font-weight: bold;
+}
+
+.selectThickness {
+
+}
+
+#selectors {
+    justify-items: center;
+}

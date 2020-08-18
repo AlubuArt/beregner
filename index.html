@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="da" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Popper.js - b4 bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="./pladeberegner.css" rel="stylesheet" type="text/css">
+    <title>
+        Plade prisberegner til byensbådebygger - Prototype
+    </title>
+</head>
+<body>
+    <!-- Calculator container-->
+    <div class="container-fluid" id="mainContainer">
+        <div class="row">
+            <div class="col">
+                <h1 class="headerText">Plade prisberegner </h1>
+            </div> 
+        </div>  
+        <div class="row">
+            <div class="col">
+                <div class="selectThickness">
+                    <label class="col-sm col-form-label col-form-label" for="thickness">Vælg tykkelse</label>
+                </div>
+            </div> 
+            <div class="col">              
+                    <select class="form-control" onchange="changeThickness()" id="selectType" onsubmit="return false;">
+                        <option value="twoMM">2mm</option>
+                        <option value="threeMM">3mm</option>
+                        <option value="fourMM">4mm</option>
+                        <option value="fiveMM">5mm</option>
+                    </select>
+            </div>     
+        </div> 
+         
+        <div class="row" id="selectors">
+
+            <div class="col">
+                <p class="col-sm col-form-label col-form-label">Indtast længde i mm</p>
+            </div>
+            <div class="col">
+                <p class="col-sm col-form-label col-form-label">Indtast bredde i mm</p>
+            </div>
+        </div>       
+        <div class="row">
+            <div class="col">
+                <form class="lengthInput">
+                     <input class="form-control" type="number"  id="selectedLength" name="length">     
+                </form>
+
+            </div>
+            <div class="col">
+                <form>
+                    <input class="form-control" type="number"  id="selectedWidth" name="selectedWidth">
+                </form>    
+            </div>
+        </div>
+        
+        
+
+        <div class="row">
+            <div class="col">
+                <button 
+                    id="calculateButton" 
+                    class="btn btn-secondary" 
+                    type="button" 
+                    onClick="buttonClick(); return false;"> 
+                    Beregn Pris
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p id="resultSize">Pladens størrelse:</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                    <p id="resultPrice">Pris inkl. moms</p>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col">
+                <button
+                    id="addToBasket"
+                    class="btn btn-primary btn-lg btn-block"
+                    type="button"
+                    onClick="addProduct()">
+                    Tilføj kurv
+                </button>
+            </div>
+        </div>
+        
+
+    </div>
+<script src="./pladePrisBeregner.js"></script>
+<script src="./pladeTyper.js"></script>
+</body>
+</html>
