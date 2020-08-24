@@ -15,98 +15,158 @@
     <link href="./pladeberegner.css" rel="stylesheet" type="text/css">
     
 </head>
-<body>
+<body >
     <!-- Calculator container-->
-    <div class="container-fluid" id="mainContainer">
+    
+    <div class="scroll">
         <div class="row">
-            <div class="col">
-                <h1 class="headerText">Plade prisberegner </h1>
-            </div> 
-        </div>  
-        <div class="row" id="selectors">
-            <div class="col">
-                <div class="selectThickness">
-                    <p class="col-sm col-form-label col-form-label" for="thickness" id="inputLabel">Vælg tykkelsen på pladen</p>
+            <div class=" col-sm-6">
+                <div class="container-fluid">
+        
+                    <div class="row">
+                        <div class="col">
+                        
+                            
+                            <h1 class="headerText">Plade prisberegner </h1>
+                        </div> 
+                    </div>  
+                    <div class="row" id="selectors">
+                        <div class="col">
+                            <div class="selectThickness">
+                                <p class="col-sm col-form-label col-form-label" for="thickness" id="inputLabel">Vælg tykkelsen på pladen</p>
+                            </div>
+                        </div>
+                    </div> 
+                        <div class="row">
+                            <div class="col">              
+                                    <select class="form-control" onchange="" id="selectType" onsubmit="return SVGComponentTransferFunctionElement;">
+                                        <option value="fourMm">4mm</option>
+                                        <option value="sevenMm">7mm</option>
+                                        <option value="nineMm">9mm</option>
+                                        <option value="twelveMm">12mm</option>
+                                        <option value="sixteenMm">16mm</option>
+                                    </select>
+                            </div> 
+                        </div> 
+                    
+                    <div class="row" id="selectors">
+            
+                        <div class="col">
+                            <p class="col-sm col-form-label col-form-label" id="inputLabel">Indtast længde i mm</p>
+                        </div>
+                        <div class="col">
+                            <p class="col-sm col-form-label col-form-label" id="inputLabel">Indtast bredde i mm</p>
+                        </div>
+                    </div>       
+                    <div class="row">
+                        <div class="col">
+                            <form class="lengthInput">
+                                <input class="form-control" type="number"  id="selectedLength" name="length" min="10" max="2500">     
+                            </form>
+            
+                        </div>
+                        <div class="col">
+                            <form class="widthInput"> 
+                                <input class="form-control" type="number"  id="selectedWidth" name="selectedWidth" min="10" max="1250">
+                            </form>    
+                        </div>
+                    </div>
+                    
+                    
+            
+                    <div class="row">
+                        <div class="col">
+                            <button 
+                                id="calculateButton" 
+                                class="btn btn-secondary" 
+                                type="button" 
+                                onClick="buttonClick(); return false;"> 
+                                Beregn Pris
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="resultText" id="resultPrice">Pris inkl. moms</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" >
+                            <p class="fragt" id="fragt">Fragt:</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="resultText" id="resultWeight">Pladens vægt:</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="resultText" id="resultSize">Pladens størrelse:</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button
+                                id="addToBasket"
+                                class="btn btn-primary btn-lg btn-block"
+                                type="button"
+                                onClick="addToBasket()">
+                                Tilføj kurv
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div> 
-            <div class="row">
-                <div class="col">              
-                        <select class="form-control" onchange="" id="selectType" onsubmit="return false;">
-                            <option value="fourMm">4mm</option>
-                            <option value="sevenMm">7mm</option>
-                            <option value="nineMm">9mm</option>
-                            <option value="twelveMm">12mm</option>
-                            <option value="sixteenMm">16mm</option>
-                        </select>
-                </div> 
-            </div> 
-         
-        <div class="row" id="selectors">
 
+            <!-- Product cart container-->       
             <div class="col">
-                <p class="col-sm col-form-label col-form-label" id="inputLabel">Indtast længde i mm</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="headerText">Indkøbskurv
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4" id="product">
+                            <p class="basketText">
+                                Produkt
+                            </p>
+                        </div>
+                        <div class="col-sm-4" id="pricePrItem">
+                            <p class="basketText">
+                                M2
+                            </p>
+                        </div>
+                        <div class="col-sm-4" id="TotalPrice">
+                            <p class="basketText">
+                                Totalpris
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4" >
+                            <p id="productName"></p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p id="productSize"></p>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
-            <div class="col">
-                <p class="col-sm col-form-label col-form-label" id="inputLabel">Indtast bredde i mm</p>
-            </div>
-        </div>       
-        <div class="row">
-            <div class="col">
-                <form class="lengthInput">
-                     <input class="form-control" type="number"  id="selectedLength" name="length">     
-                </form>
-
-            </div>
-            <div class="col">
-                <form class="widthInput"> 
-                    <input class="form-control" type="number"  id="selectedWidth" name="selectedWidth">
-                </form>    
-            </div>
+                    
         </div>
-        
-        
-
-        <div class="row">
-            <div class="col">
-                <button 
-                    id="calculateButton" 
-                    class="btn btn-secondary" 
-                    type="button" 
-                    onClick="buttonClick(); return false;"> 
-                    Beregn Pris
-                </button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <p class="resultText" id="resultPrice">Pris inkl. moms</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <p class="resultText" id="resultWeight">Pladens vægt:</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <p class="resultText" id="resultSize">Pladens størrelse:</p>
-            </div>
-            </div>
-        <div class="row">
-            <div class="col">
-                <button
-                    id="addToBasket"
-                    class="btn btn-primary btn-lg btn-block"
-                    type="button"
-                    onClick="addProduct()">
-                    Tilføj kurv
-                </button>
-            </div>
-        </div>
-        
-
     </div>
+
+        
+    
+    
+        
+    
+   
+    
 <script src="./pladePrisBeregner.js"></script>
 <script src="./pladeTykkelser.js"></script>
 </body>
